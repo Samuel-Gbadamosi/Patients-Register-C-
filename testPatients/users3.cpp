@@ -2,6 +2,8 @@
 #include <string>
 #include <mysql.h>
 
+//download the c++ library then connect to db
+
 //to connect to the database needed
 //class patient to be declared here
 class Patient{
