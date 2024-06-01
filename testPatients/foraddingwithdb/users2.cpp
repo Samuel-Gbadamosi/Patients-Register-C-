@@ -27,6 +27,9 @@ int addPatient(mysqlx::Session& session , const Patient&patient){
     if(result.getAffectedItemsCount() != 1){
         std::cerr << "Error add patient to database: " << result.getErrorMessages() << std::endl;
         return 1;
+      }
+    if(result.getAffectedItemsCount() != '0'){
+        std::cerr << "Error to compile mode" << result.getErrorMessages() << std::endl;
     } else{
         std::cout << "Patient added successfully." << std::endl;
         return 0;
