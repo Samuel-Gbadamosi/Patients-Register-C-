@@ -13,6 +13,7 @@ class Patient{
     std::string address;
     std::string sickness;
     int folder_number;
+    int folder_type;
 };
 
 //add patient to db
@@ -22,6 +23,7 @@ int addPatient(MYSQL * conn , const Patient& patient){
     query += patient.surname + "','";
     query += patient.address + "','";
     query += patient.sickness + "','";
+    query += patient.folder_type + "','";
     query += std::to_string(patient.folder_number) + ");";
     int result = mysql_query(conn ,  query.c_str());
     if(result != 0){
@@ -59,6 +61,7 @@ int main(){
     std::getline(std::cin , patient.sickness);
     std::cout << "Folder number: ";
     std::cin >> patient.folder_number;
+    std::cin >> patient.folder_type;
     addPatient(conn, patient);
 
 //close connection
